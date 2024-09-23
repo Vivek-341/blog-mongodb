@@ -10,9 +10,13 @@ import myBlog from './controller/blog-controller.js';
 //import user from './controller/user-controller.js';
 import thread from './controller/thread-controller.js';
 import bodyParser from 'body-parser';
+import Connection from './db/db.js';
+// import { connection } from 'mongoose';
 const app = express();
 app.use(bodyParser.json());
+console.log("I am app");
 app.use((req,res,next) => {
+    console.log(JSON.stringify(req.body)+"app");
     res.setHeader('Access-Control-Allow-Origin','*');
     res.setHeader('Access-Control-Allow-Methods','OPTIONS, GET, POST, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers','Content-Type,Authorization');
@@ -21,4 +25,5 @@ app.use((req,res,next) => {
 app.use('/blog', myBlog);
 //app.use('/user', user);
 app.use('/thread', thread);
+Connection();
 app.listen(3030);

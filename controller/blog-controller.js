@@ -1,4 +1,4 @@
-import blog from '../model/blog.js';
+import Blog from '../model/blog.js';
 import express from 'express';
 
 const app = express.Router();
@@ -6,7 +6,7 @@ const app = express.Router();
 //export const createBlog = async (request, response) => {
 app.post('/', async (request, response) => {
     try {
-        const Mblog = await new  blog(request.body);
+        const Mblog = await new  Blog(request.body);
         Mblog.save();
 
         response.status(200).json('Blog saved successfully');
@@ -56,16 +56,18 @@ app.post('/', async (request, response) => {
 //     }
 // })
 
-// //export const getAllBlogs = async (request, response) => {
-// app.get("/", async (request, response) => {
-//     try {   
-//         const blogs = await Blog.find({});
-//         console.log(blogs)
-//         response.status(200).json(blogs);
-//     } catch (error) {
-//         response.status(500).json(error)
-//     }
-// })
+//export const getAllBlogs = async (request, response) => {
+app.get("/", async (request, response) => {
+    console.log("I am get");
+    try {   
+        const blogs = await Blog.find({});
+        console.log(blogs+"hello")
+        response.status(200).json(blogs);
+    } catch (error) {
+        console.log(error)
+        response.status(500).json(error)
+    }
+})
 
 // module.exports = app
 export default app

@@ -3,12 +3,12 @@ import mongoose from 'mongoose';
 const BlogSchema = mongoose.Schema({
     title: {
         type: String,
-        required: true,
+        required: false,
         unique: true
     },
     description: {
         type: String,
-        required: true
+        required: false
     },
     picture: {
         type: String,
@@ -16,7 +16,7 @@ const BlogSchema = mongoose.Schema({
     },
     username: {
         type: String,
-        required: true
+        required: false
     },
     categories: {
         type: Array,
