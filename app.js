@@ -1,10 +1,16 @@
-const express = require('express');
+// const express = require('express');
+// const app = express();
+// const mongoose = require('mongoose');
+// const myBlog = require('./controller/blog-controller.js');
+// //const user = require('./controller/user-controller.js');
+// const thread = require('./controller/thread-controller.js');
+// const bodyParser = require('body-parser');
+import express from 'express';
+import myBlog from './controller/blog-controller.js';
+//import user from './controller/user-controller.js';
+import thread from './controller/thread-controller.js';
+import bodyParser from 'body-parser';
 const app = express();
-const mongoose = require('mongoose');
-const myBlog = require('./controller/blog-controller.js');
-//const user = require('./controller/user-controller.js');
-const thread = require('./controller/thread-controller.js');
-const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use((req,res,next) => {
     res.setHeader('Access-Control-Allow-Origin','*');

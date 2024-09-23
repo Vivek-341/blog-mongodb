@@ -1,5 +1,6 @@
 import Thread from '../model/thread.js';
-
+import express from 'express';
+const app = express.Router();
 
 export const newThread = async (request, response) => {
     try {
@@ -34,4 +35,5 @@ export const deleteThread = async (request, response) => {
     }
 }
 
-module.exports=app
+// module.exports=app
+export default app

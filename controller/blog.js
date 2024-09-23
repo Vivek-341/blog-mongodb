@@ -1,7 +1,11 @@
-const express = require('express');
+// const express = require('express');
+// const app = express.Router();
+import express from 'express';
+import mySqlConnection from '../db/db.js';
+import queries from '../db/models/blogModel.js';
 const app = express.Router();
-const mySqlConnection = require('../db/db.js')
-const queries = require('../db/models/blogModel.js')
+// const mySqlConnection = require('../db/db.js')
+// const queries = require('../db/models/blogModel.js')
 
 app.get("/", (req, res) => {
   try {

@@ -1,5 +1,7 @@
 import blog from '../model/blog.js';
+import express from 'express';
 
+const app = express.Router();
 
 //export const createBlog = async (request, response) => {
 app.post('/', async (request, response) => {
@@ -65,4 +67,5 @@ app.post('/', async (request, response) => {
 //     }
 // })
 
-module.exports = app
+// module.exports = app
+export default app
