@@ -11,7 +11,7 @@ const ThreadSchema = mongoose.Schema({
     },
     date: {
         type: String,
-        required: true
+        required: false
     },
     comments: {
         type: String,

@@ -1,7 +1,7 @@
 
 import express from 'express';
 import myBlog from './controller/blog-controller.js';
-//import user from './controller/user-controller.js';
+import user from './controller/user-controller.js';
 import thread from './controller/thread-controller.js';
 import bodyParser from 'body-parser';
 import Connection from './db/db.js';
@@ -14,7 +14,7 @@ app.use((req,res,next) => {
     next();
 });
 app.use('/blog', myBlog);
-// app.use('/user', user);
+app.use('/user', user);
 app.use('/thread', thread);
 Connection();
 app.listen(3030);
