@@ -4,7 +4,7 @@ const app = express.Router();
 
 // export const newThread = async (request, response) => {
 app.post('/', async (request, response) => {
-    
+
 
     try {
         const thread = await new Thread(request.body);
@@ -28,10 +28,10 @@ app.put('/:id', async (request, response) => {
 })
 
 // export const getThreads = async (request, response) => {
-app.get('/:id', async (request, response) => {   
+app.get('/:id', async (request, response) => {
     try {
         const threads = await Thread.find({ blogId: request.params.id });
-        
+
         response.status(200).json(threads);
     } catch (error) {
         response.status(500).json(error)
@@ -41,14 +41,14 @@ app.get('/:id', async (request, response) => {
 app.get('/', async (request, response) => {
     try {
         const threads = await Thread.find();
-        
+
         response.status(200).json(threads);
     } catch (error) {
         response.status(500).json(error)
     }
 })
 //export const deleteThread = async (request, response) => {
-app.delete('/:id', async (request, response) => {  
+app.delete('/:id', async (request, response) => {
     try {
         const thread = await Thread.findById(request.params.id);
         await thread.deleteOne({ "_id": request.params.id });
