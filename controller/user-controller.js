@@ -6,9 +6,9 @@ const app = express.Router();
 app.post('/', async (request, response) => {
     try {
         const user = new User(request.body);
-        //Checks if username is same then don't save
-        if (await User.findOne({ "username": request.body.username })) {
-            return response.status(400).json({ msg: 'Username already exists' });
+        //Checks if userName is same then don't save
+        if (await User.findOne({ "userName": request.body.userName })) {
+            return response.status(400).json({ msg: 'userName already exists' });
         }
         else {
             user.save();
@@ -41,8 +41,8 @@ app.delete('/:id', async (request, response) => {
 
 app.get('/', async (request, response) => {
     try {
-        if (request.body.username && request.body.password) {
-            const users = await User.find({ "username": request.body.username, "password": request.body.password });
+        if (request.body.userName && request.body.password) {
+            const users = await User.find({ "userName": request.body.userName, "password": request.body.password });
             if (users.length > 0) {
                 response.status(200).json({ msg: "User found" });
             } else {

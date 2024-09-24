@@ -4,6 +4,7 @@ import user from './controller/user-controller.js';
 import thread from './controller/thread-controller.js';
 import bodyParser from 'body-parser';
 import Connection from './db/db.js';
+import login from './controller/login-controller.js';
 const app = express();
 app.use(bodyParser.json());
 app.use((req, res, next) => {
@@ -15,5 +16,6 @@ app.use((req, res, next) => {
 app.use('/blog', myBlog);
 app.use('/user', user);
 app.use('/thread', thread);
+app.use('/login', login);
 Connection();
 app.listen(3030);
