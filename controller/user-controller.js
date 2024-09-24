@@ -41,8 +41,18 @@ app.delete('/:id', async (request, response) => {
 
 app.get('/', async (request, response) => {
     try {
-        const users = await User.find({});
-        response.status(200).json(users);
+        if(request.body.username && request.body.password){
+            const users = await User.find({"username": request.body.username, "password": request.body.password});
+            if(users.length > 0){
+                response.status(200).json({msg: "User found"});
+            }else{
+                response.status(400).json({msg: "User not found"});
+            }
+        }
+        else{
+            const users = await User.find({}); 
+            response.status(200).json(users);
+        }
     } catch (error) {
         response.status(500).json(error);
         }
