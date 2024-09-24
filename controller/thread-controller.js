@@ -35,5 +35,4 @@ export const deleteThread = async (request, response) => {
     }
 }
 
-// module.exports=app
 export default app
