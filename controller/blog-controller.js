@@ -36,7 +36,7 @@ app.delete('/:id', async (request, response) => {
 
 app.get("/:id", async (request, response) => {
     try {
-        const blog = await Blog.findById(request.params.id).select({ title: 1, description: 1, threads: 1, _id: 0 });
+        const blog = await Blog.findById(request.params.id);
         response.status(200).json(blog);
     } catch (error) {
         response.status(500).json(error)

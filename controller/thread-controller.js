@@ -49,6 +49,7 @@ app.get('/', async (request, response) => {
 })
 //export const deleteThread = async (request, response) => {
 app.delete('/:id', async (request, response) => {
+    console.log(request.params.id);
     try {
         const thread = await Thread.findById(request.params.id);
         await thread.deleteOne({ "_id": request.params.id });
@@ -59,13 +60,13 @@ app.delete('/:id', async (request, response) => {
     }
 })
 
-app.delete('/blog/:id', async (request, response) => {
-    try {
-        await Thread.deleteMany({ blogId: request.params.id });
-        response.status(200).json('All threads deleted successfully');
-    } catch (error) {
-        response.status(500).json(error)
-    }
-})
+// app.delete('/blog/:id', async (request, response) => {
+//     try {
+//         await Thread.deleteMany({ blogId: request.params.id });
+//         response.status(200).json('All threads deleted successfully');
+//     } catch (error) {
+//         response.status(500).json(error)
+//     }
+// })
 
 export default app

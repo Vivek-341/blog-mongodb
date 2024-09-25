@@ -6,25 +6,26 @@ const BlogSchema = mongoose.Schema({
         required: false,
         unique: true
     },
-    description: {
+    content: {
         type: String,
         required: false
-    },
-    picture: {
-        type: String,
-        required: false
-    },
-    username: {
-        type: String,
-        required: false
-    },
-    categories: {
-        type: Array,
-        required: false
-    },
-    createdDate: {
-        type: Date
     }
+    //,
+    // picture: {
+    //     type: String,
+    //     required: false
+    // },
+    // username: {
+    //     type: String,
+    //     required: false
+    // },
+    // categories: {
+    //     type: Array,
+    //     required: false
+    // },
+    // createdDate: {
+    //     type: Date
+    // }
 });
 
 
