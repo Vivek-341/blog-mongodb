@@ -1,13 +1,9 @@
 import mongoose from 'mongoose';
 
 const ThreadSchema = mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-    },
     blogId: {
         type: String,
-        required: true
+        required: false
     },
     date: {
         type: String,
